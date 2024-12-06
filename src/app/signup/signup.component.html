@@ -1,0 +1,74 @@
+<div class="big">
+    <div class="container">
+      <h1 class="form-title">Enregistrement</h1>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="fullName">Prénom</label>
+            <input type="text"
+                   id="fullName"
+                   formControlName="prenom"
+                   placeholder="Entrez le prénom"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Nom</label>
+            <input type="text"
+                   id="username"
+                   formControlName="nom"
+                   placeholder="Entrez le nom"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Email</label>
+            <input type="email"
+                   id="email"
+                   formControlName="email"
+                   placeholder="Entrez l'email"/>
+          </div>
+          <div class="user-input-box">
+            <label for="region">Région</label>
+            <select id="region" formControlName="region">
+              <option value="">Sélectionner la région</option>
+              <option *ngFor="let region of regions" [value]="region.name">{{ region.name }}</option>
+            </select>
+          </div>
+          <div class="user-input-box">
+            <label for="password">Mot de passe</label>
+            <input type="password"
+                   id="password"
+                   formControlName="motdepasse"
+                   placeholder="Entrez le mot de passe"/>
+          </div>
+          <div class="user-input-box">
+            <label for="confirmPassword">Confirmer le mot de passe</label>
+            <input type="password"
+                   id="confirmPassword"
+                   formControlName="confirmPassword"
+                   placeholder="Confirmez le mot de passe"/>
+          </div>
+          <div class="user-input-box">
+            <label for="age">Âge</label>
+            <input type="number"
+                   id="age"
+                   formControlName="age"
+                   placeholder="Entrez votre âge" />
+          </div>
+
+        </div>
+        <div class="gender-details-box">
+          <span class="gender-title">Genre</span>
+          <div class="gender-category">
+            <input type="radio" formControlName="gender" id="male" value="Homme">
+            <label for="male">Homme</label>
+            <input type="radio" formControlName="gender" id="female" value="Femme">
+            <label for="female">Femme</label>
+            <input type="radio" formControlName="gender" id="other" value="other">
+            <label for="other">Autre</label>
+          </div>
+        </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="S'inscrire" [disabled]="!registrationForm.valid">
+        </div>
+      </form>
+    </div>
+  </div>
+  
